@@ -1,5 +1,7 @@
 # back-end
 
+# back-end
+
 #### Prison Admin Schema
 | field    | data type        | metadata                                            |
 | :------- | :--------------- | :-------------------------------------------------- |
@@ -50,8 +52,6 @@ Base URL: `
 | `GET`          | `/prisons`           | returns all prisons                                                   |
 | `GET`          | `/prisons/:id/prisoners`   | returns all prisoners for a particular prison                   |
 | `GET`          | `/prisons/:id/prisoners/:id`| returns a particular prisoner profile                          |
-
-
 | `GET`          | `/users/usersinfo`   | returns user information for all users                                |
 | `GET`          | `/users/:id/info`    | returns user information for a given user                             |
 | `PUT`          | `/users/:id/entry`   | updates a journal entry. :id refers to the entry id                   |
