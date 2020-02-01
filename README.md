@@ -52,10 +52,3 @@
 | `GET`          | `/prisons`                   | returns all prisons                                     |
 | `GET`          | `/prisons/:id/prisoners`     | returns all prisoners for a particular prison           |
 | `GET`          | `/prisons/:id/prisoners/:id` | returns a particular prisoner profile                   |
-| `GET`          | `/users/usersinfo`           | returns user information for all users                  |
-| `GET`          | `/users/:id/info`            | returns user information for a given user               |
-| `PUT`          | `/users/:id/entry`           | updates a journal entry. :id refers to the entry id     |
-| `PUT`          | `/users/:id/info`            | updates user information. :id refers to the info id     |
-| `Delete`       | `/users/:id/entry`           | deletes a journal entry. :id refers to the entry id     |
-| `Delete`       | `/users/:id/info`            | deletes a users info entry. :id refers to the info id   |
-| `Delete`       | `/users/:id/`                | deletes a user. :id refers to the users id              |
