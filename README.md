@@ -43,7 +43,7 @@
 ### Endpoints
 Base URL: `tobedetermined`
 | Request Method | Endpoint                     | Description                                             |
-| :------------- | :----------------------------| :-------------------------------------------------------|
+| :------------- | :--------------------------- | :------------------------------------------------------ |
 | `POST`         | `/auth/login`                | Logs an admin in and returns a token                    |
 | `POST`         | `/auth/register`             | creates a prison admin                                  |
 | `POST`         | `/prison`                    | adds a prison profile                                   |
