@@ -1,8 +1,32 @@
 const router = require("express").Router({ mergeParams: true });
 const Prisoners = require("./prisoner-model.js");
+const { validateAdmin } = require("../auth/config/auth-middleware.js");
+const {
+  validatePrisoner,
+  validatePrisonerTypes
+} = require("../prisoners/middleware/prisoner-middleware.js");
 
 router.get("/", (req, res) => {
-  console.log(req.originalUrl);
+  Prisoners.get(req.params.id)
+    .then(result => {
+      res.status(200).json(result);
+    })
+    .catch(error => {
+      res.status(500).json(error.message);
+    });
+});
+
+router.post("/", validateAdmin, (req, res) => {
+  Prisoners.add({ ...req.body, prison_id: req.params.id })
+    .then(result => {
+      res.status(200).json(result);
+    })
+    .catch(error => {
+      res.status(500).json(error.message);
+    });
+});
+
+router.get("/:prisonerid", (req, res) => {
   Prisoners.getById(req.params.prisonerid)
     .then(result => {
       if (result) {
@@ -18,8 +42,8 @@ router.get("/", (req, res) => {
     });
 });
 
-router.put("/", (req, res) => {
-  Prisoners.update(req.params.prisonerid)
+router.put("/:prisonerid", (req, res) => {
+  Prisoners.update(req.body, req.params.prisonerid)
     .then(result => {
       if (result) {
         res.status(200).json(result);
@@ -34,7 +58,7 @@ router.put("/", (req, res) => {
     });
 });
 
-router.delete("/", (req, res) => {
+router.delete("/:prisonerid", (req, res) => {
   Prisoners.remove(req.params.prisonerid)
     .then(result => {
       res.status(200).json(result);
