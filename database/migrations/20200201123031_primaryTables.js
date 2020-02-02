@@ -36,7 +36,7 @@ exports.up = function(knex) {
         .string("name", 50)
         .notNullable()
         .index();
-      table.boolean("can leave").notNullable();
+      table.boolean("can_leave").notNullable();
     })
     .createTable("prisoner_skills", table => {
       table.increments();
@@ -69,7 +69,6 @@ exports.down = function(knex) {
   return knex.schema
     .dropTableIfExists("prisoner_experience")
     .dropTableIfExists("prisoner_skills")
-    .dropTableIfExists("prison_prisoners")
     .dropTableIfExists("prisoners")
     .dropTableIfExists("prisons")
     .dropTableIfExists("admins");
