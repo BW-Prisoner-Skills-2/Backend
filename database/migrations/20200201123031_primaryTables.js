@@ -26,14 +26,6 @@ exports.up = function(knex) {
     .createTable("prisoners", table => {
       table.increments();
       table
-        .string("name", 50)
-        .notNullable()
-        .index();
-      table.boolean("can leave").notNullable();
-    })
-    .createTable("prison_prisoners", table => {
-      table.increments();
-      table
         .integer("prison_id")
         .unsigned()
         .notNullable()
@@ -42,13 +34,10 @@ exports.up = function(knex) {
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
       table
-        .integer("prisoner_id")
-        .unsigned()
+        .string("name", 50)
         .notNullable()
-        .references("id")
-        .inTable("prisoners")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE");
+        .index();
+      table.boolean("can leave").notNullable();
     })
     .createTable("prisoner_skills", table => {
       table.increments();

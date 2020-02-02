@@ -1,6 +1,6 @@
 module.exports = {
   validatePrison,
-  validateTypes
+  validatePrisonTypes
 };
 
 function validatePrison(req, res, next) {
@@ -11,7 +11,7 @@ function validatePrison(req, res, next) {
   }
 }
 
-function validateTypes(req, res, next) {
+function validatePrisonTypes(req, res, next) {
   if (
     typeof req.body.name === "string" &&
     typeof req.body.address === "string" &&

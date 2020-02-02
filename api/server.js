@@ -16,7 +16,6 @@ server.use(Logger);
 
 server.use("/api/auth", authRouter);
 server.use("/api/prisons", prisonRouter);
-server.use("/api/prisons/:id/prisoners", prisonerRouter);
 
 function Logger(req, res, next) {
   console.log({
