@@ -6,6 +6,12 @@ const {
   validatePrisonerTypes
 } = require("../prisoners/middleware/prisoner-middleware.js");
 
+const skillsRouter = require("./skills/skills-router.js");
+const experienceRouter = require("./experience/experience-router.js");
+
+router.use("/:prisonerid/skills", skillsRouter);
+router.use("/:prisonerid/experience", experienceRouter);
+
 router.get("/", (req, res) => {
   Prisoners.get(req.params.id)
     .then(result => {

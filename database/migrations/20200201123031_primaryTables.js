@@ -21,7 +21,6 @@ exports.up = function(knex) {
         .notNullable()
         .unique();
       table.integer("zipcode", 12).notNullable();
-      table.integer("prisoner_quantity", 10);
     })
     .createTable("prisoners", table => {
       table.increments();
