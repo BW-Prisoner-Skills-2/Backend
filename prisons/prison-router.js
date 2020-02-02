@@ -36,7 +36,7 @@ router.put("/:id", validateAdmin, (req, res) => {
     });
 });
 
-router.del("/:id", validateAdmin, (req, res) => {
+router.delete("/:id", validateAdmin, (req, res) => {
   Prisons.remove(req.params.id)
     .then(result => {
       res.status(200).json(result);

@@ -24,6 +24,7 @@ function Logger(req, res, next) {
     uri: req.originalUrl,
     method: req.method
   });
+  next();
 }
 
 module.exports = server;

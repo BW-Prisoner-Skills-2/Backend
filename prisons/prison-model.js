@@ -32,11 +32,10 @@ function update(prison_info, id) {
 
 async function remove(id) {
   const removed = await getById(id);
-
   return db("prisons")
     .where({ id })
     .del()
-    .then(result => {
-      return `Success, you deleted: ${removed}`;
+    .then(res => {
+      return { message: "Success", deleted: removed };
     });
 }
