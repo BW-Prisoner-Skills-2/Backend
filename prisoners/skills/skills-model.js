@@ -3,8 +3,15 @@ const db = require("../../database/dbconfig.js");
 module.exports = {
   add,
   update,
-  remove
+  remove,
+  getBy
 };
+
+function getBy(prisoner_id) {
+  return db("prisoner_skills")
+    .select("*")
+    .where({ prisoner_id });
+}
 
 function getById(id) {
   return db("prisoner_skills").where({ id });

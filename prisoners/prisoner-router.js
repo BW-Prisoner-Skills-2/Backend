@@ -9,13 +9,15 @@ const {
 const skillsRouter = require("./skills/skills-router.js");
 const experienceRouter = require("./experience/experience-router.js");
 
+const Skills = require("./skills/skills-model.js");
+
 router.use("/:prisonerid/skills", skillsRouter);
 router.use("/:prisonerid/experience", experienceRouter);
 
 router.get("/", (req, res) => {
   Prisoners.get(req.params.id)
-    .then(result => {
-      res.status(200).json(result);
+    .then(prisoners => {
+      res.status(200).json(prisoners);
     })
     .catch(error => {
       res.status(500).json(error.message);

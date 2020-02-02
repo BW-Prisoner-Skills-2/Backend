@@ -13,9 +13,9 @@ function add(prisoner) {
 }
 
 function get(prison_id) {
-  return db("prisoners")
-    .select("*")
-    .where("prison_id", prison_id);
+  return db("prisoners").where("prison_id", prison_id);
+  // .leftJoin("prisoner_skills", "prisoner_id", "prisoners.id")
+  // .select("prison_id", "name", "prisoner_skills.description as skills");
 }
 
 function getById(id) {
