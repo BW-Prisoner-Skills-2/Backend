@@ -13,7 +13,7 @@
 | :------------- | :------------- | :-------------------------------------------------- |
 | `POST`         | `/prisons`     | adds a prison profile                               |
 | `GET`          | `/prisons`     | returns all prisons                                 |
-| `DEL`          | `/prisons/:id` | deletes a prison (and all prisoners in that prison) |
+| `DELETE`       | `/prisons/:id` | deletes a prison (and all prisoners in that prison) |
 | `PUT`          | `/prisons/:id` | updates a prison's information                      |
 
 ### Endpoints For Prisoners
@@ -23,7 +23,7 @@
 | `POST`         | `/prison/:id/prisoners`      | adds a prisoner to a prison                                              |
 | `GET`          | `/prisons/:id/prisoners`     | returns all prisoners for a prison, their name, availability, and skills |
 | `GET`          | `/prisons/:id/prisoners/:id` | returns a prisoner by id, their basic info, skills, and experience       |
-| `DEL`          | `/prisons/:id/prisoners/:id` | deletes a prisoner                                                       |
+| `DELETE`       | `/prisons/:id/prisoners/:id` | deletes a prisoner                                                       |
 | `PUT`          | `/prisons/:id/prisoners/:id` | updates a prisoner's basic information (name, availability)              |
 
 ### Endpoints For Prisoner Skills
@@ -31,7 +31,7 @@
 | Request Method | Endpoint                            | Description                |
 | :------------- | :---------------------------------- | :------------------------- |
 | `POST`         | `/prisons/:id/prisoners/:id/skills` | adds a prisoner's skill    |
-| `DEL`          | `/prisons/:id/prisoners/:id/skills` | deletes a prisoner's skill |
+| `DELETE`       | `/prisons/:id/prisoners/:id/skills` | deletes a prisoner's skill |
 | `PUT`          | `/prisons/:id/prisoners/:id/skills` | updates a prisoner's skill |
 
 ### Endpoints For Prisoner Experience
@@ -39,7 +39,7 @@
 | Request Method | Endpoint                                | Description                            |
 | :------------- | :-------------------------------------- | :------------------------------------- |
 | `POST`         | `/prisons/:id/prisoners/:id/experience` | adds prisoner's previous experience    |
-| `DEL`          | `/prisons/:id/prisoners/:id/experience` | deletes prisoner's previous experience |
+| `DELETE`       | `/prisons/:id/prisoners/:id/experience` | deletes prisoner's previous experience |
 | `PUT`          | `/prisons/:id/prisoners/:id/experience` | updates prisoner's previous experience |
 
 #### Prison Admin Schema
