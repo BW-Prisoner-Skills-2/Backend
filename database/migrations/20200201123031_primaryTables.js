@@ -7,10 +7,7 @@ exports.up = function(knex) {
         .notNullable()
         .unique()
         .index();
-      table
-        .string("password", 25)
-        .notNullable()
-        .notNullable();
+      table.string("password", 80).notNullable();
     })
     .createTable("prisons", table => {
       table.increments();
@@ -76,7 +73,7 @@ exports.up = function(knex) {
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
       table.string("description", 250).notNullable();
-      table.string("date", 30).notNullable();
+      table.string("date", 40).notNullable();
     });
 };
 

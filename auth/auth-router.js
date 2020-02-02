@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const validateBody = require("./config/middleware.js");
+const validateBody = require("./config/auth-middleware.js");
 const bc = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const jwtSecret = require("./config/jwt.js");
