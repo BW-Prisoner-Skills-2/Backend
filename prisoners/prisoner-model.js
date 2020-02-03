@@ -5,17 +5,31 @@ module.exports = {
   getById,
   add,
   update,
-  remove
+  remove,
+  getSkillsByPrisonerId
 };
+
+function getSkillsByPrisonerId(id) {
+  return db("prisoner_skills")
+    .select("*")
+    .where("prisoner_id", id);
+}
 
 function add(prisoner) {
   return db("prisoners").insert(prisoner);
 }
 
 function get(prison_id) {
-  return db("prisoners").where("prison_id", prison_id);
-  // .leftJoin("prisoner_skills", "prisoner_id", "prisoners.id")
-  // .select("prison_id", "name", "prisoner_skills.description as skills");
+  return db("prisoners")
+    .where("prison_id", prison_id)
+    .then(prisoners => {
+      return Promise.all(
+        prisoners.map(async prisoner => {
+          let skills = await getSkillsByPrisonerId(prisoner.id);
+          return { prisoner, skills };
+        })
+      );
+    });
 }
 
 function getById(id) {
