@@ -26,7 +26,7 @@ function get(prison_id) {
       return Promise.all(
         prisoners.map(async prisoner => {
           let skills = await getSkillsByPrisonerId(prisoner.id);
-          return { prisoner, skills };
+          return { ...prisoner, skills: skills };
         })
       );
     });
