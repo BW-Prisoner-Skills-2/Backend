@@ -20,9 +20,6 @@ function add(prisoner) {
 }
 
 function get(prison_id) {
-  const getSkills = async prisoners => {
-    return;
-  };
   return db("prisoners")
     .where("prison_id", prison_id)
     .then(prisoners => {
