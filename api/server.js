@@ -14,6 +14,11 @@ server.use(cors());
 
 server.use(Logger);
 
+server.get("/api", (req, res) => {
+  res.send(`
+  <h1>PRISON SKILLS BASE URI</h1>`);
+});
+
 server.use("/api/auth", authRouter);
 server.use("/api/prisons", prisonRouter);
 
