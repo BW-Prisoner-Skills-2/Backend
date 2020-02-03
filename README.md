@@ -28,19 +28,19 @@
 
 ### Endpoints For Prisoner Skills
 
-| Request Method | Endpoint                            | Description                |
-| :------------- | :---------------------------------- | :------------------------- |
-| `POST`         | `/prisons/:id/prisoners/:id/skills` | adds a prisoner's skill    |
-| `DELETE`       | `/prisons/:id/prisoners/:id/skills` | deletes a prisoner's skill |
-| `PUT`          | `/prisons/:id/prisoners/:id/skills` | updates a prisoner's skill |
+| Request Method | Endpoint                                             | Description                |
+| :------------- | :--------------------------------------------------- | :------------------------- |
+| `POST`         | `/prisons/:id/prisoners/:prisoneridid/skills`        | adds a prisoner's skill    |
+| `DELETE`       | `/prisons/:id/prisoners/:prisonerid/skills/:skillid` | deletes a prisoner's skill |
+| `PUT`          | `/prisons/:id/prisoners/:prisonerid/skills/:skillid` | updates a prisoner's skill |
 
 ### Endpoints For Prisoner Experience
 
-| Request Method | Endpoint                                | Description                            |
-| :------------- | :-------------------------------------- | :------------------------------------- |
-| `POST`         | `/prisons/:id/prisoners/:id/experience` | adds prisoner's previous experience    |
-| `DELETE`       | `/prisons/:id/prisoners/:id/experience` | deletes prisoner's previous experience |
-| `PUT`          | `/prisons/:id/prisoners/:id/experience` | updates prisoner's previous experience |
+| Request Method | Endpoint                                                      | Description                            |
+| :------------- | :------------------------------------------------------------ | :------------------------------------- |
+| `POST`         | `/prisons/:id/prisoners/:id/experience`                       | adds prisoner's previous experience    |
+| `DELETE`       | `/prisons/:id/prisoners/:prisonerid/experience/:experienceid` | deletes prisoner's previous experience |
+| `PUT`          | `/prisons/:id/prisoners/:prisonerid/experience/:experienceid` | updates prisoner's previous experience |
 
 #### Prison Admin Schema
 
