@@ -15,6 +15,12 @@ function getSkillsByPrisonerId(id) {
     .where("prisoner_id", id);
 }
 
+function getExperienceByPrisonerId(id) {
+  return db("prisoner_experience")
+    .select("*")
+    .where("prisoner_id", id);
+}
+
 function add(prisoner) {
   return db("prisoners").insert(prisoner);
 }
@@ -33,7 +39,14 @@ function get(prison_id) {
 }
 
 function getById(id) {
-  return db("prisoners").where({ id });
+  return db("prisoners")
+    .where({ id })
+    .first()
+    .then(async prisoner => {
+      let skills = await getSkillsByPrisonerId(prisoner.id);
+      let experience = await getExperienceByPrisonerId(prisoner.id);
+      return { ...prisoner, skills: skills, experience: experience };
+    });
 }
 
 function update(changes, id) {
