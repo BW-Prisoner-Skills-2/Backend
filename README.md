@@ -30,7 +30,7 @@
 
 | Request Method | Endpoint                                             | Description                |
 | :------------- | :--------------------------------------------------- | :------------------------- |
-| `POST`         | `/prisons/:id/prisoners/:prisoneridid/skills`        | adds a prisoner's skill    |
+| `POST`         | `/prisons/:id/prisoners/:prisonerid/skills`          | adds a prisoner's skill    |
 | `DELETE`       | `/prisons/:id/prisoners/:prisonerid/skills/:skillid` | deletes a prisoner's skill |
 | `PUT`          | `/prisons/:id/prisoners/:prisonerid/skills/:skillid` | updates a prisoner's skill |
 
@@ -38,7 +38,7 @@
 
 | Request Method | Endpoint                                                      | Description                            |
 | :------------- | :------------------------------------------------------------ | :------------------------------------- |
-| `POST`         | `/prisons/:id/prisoners/:id/experience`                       | adds prisoner's previous experience    |
+| `POST`         | `/prisons/:id/prisoners/:prisonerid/experience`               | adds prisoner's previous experience    |
 | `DELETE`       | `/prisons/:id/prisoners/:prisonerid/experience/:experienceid` | deletes prisoner's previous experience |
 | `PUT`          | `/prisons/:id/prisoners/:prisonerid/experience/:experienceid` | updates prisoner's previous experience |
 
