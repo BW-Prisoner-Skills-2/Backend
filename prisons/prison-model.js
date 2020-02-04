@@ -7,6 +7,12 @@ module.exports = {
   remove
 };
 
+function getPrisonerCount(id) {
+  return db("prisoners")
+    .count("name as prisoners")
+    .where("prison_id", id);
+}
+
 function getById(id) {
   return db("prisons")
     .select("*")
@@ -14,7 +20,16 @@ function getById(id) {
 }
 
 function get() {
-  return db("prisons").select("*");
+  return db("prisons")
+    .select("*")
+    .then(prisonArray => {
+      return Promise.all(
+        prisonArray.map(async prison => {
+          let count = await getPrisonerCount(prison.id);
+          return { ...prison, population: count };
+        })
+      );
+    });
 }
 
 function add(prison_info) {
