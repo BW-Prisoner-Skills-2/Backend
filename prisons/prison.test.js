@@ -24,4 +24,55 @@ describe("server", () => {
         });
     });
   });
+
+  describe("POST /prisons", () => {
+    it("returns 401 code if not logged in", () => {
+      return request(server)
+        .post("/api/prisons")
+        .then(res => {
+          expect(res.status).toBe(401);
+        });
+    });
+    it("returns using json structure", () => {
+      return request(server)
+        .post("/api/prisons")
+        .then(res => {
+          expect(res.type).toMatch(/json/);
+        });
+    });
+  });
+
+  describe("DELETE /prisons/:id", () => {
+    it("returns 401 code if not logged in", () => {
+      return request(server)
+        .delete("/api/prisons/1")
+        .then(res => {
+          expect(res.status).toBe(401);
+        });
+    });
+    it("returns using json structure", () => {
+      return request(server)
+        .delete("/api/prisons/1")
+        .then(res => {
+          expect(res.type).toMatch(/json/);
+        });
+    });
+  });
+
+  describe("PUT /prisons/:id", () => {
+    it("returns 401 code if not logged in", () => {
+      return request(server)
+        .put("/api/prisons/1")
+        .then(res => {
+          expect(res.status).toBe(401);
+        });
+    });
+    it("returns using json structure", () => {
+      return request(server)
+        .put("/api/prisons/1")
+        .then(res => {
+          expect(res.type).toMatch(/json/);
+        });
+    });
+  });
 });
