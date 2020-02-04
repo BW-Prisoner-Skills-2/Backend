@@ -2,8 +2,7 @@ const router = require("express").Router({ mergeParams: true });
 const Prisoners = require("./prisoner-model.js");
 const { validateAdmin } = require("../auth/config/auth-middleware.js");
 const {
-  validatePrisoner,
-  validatePrisonerTypes
+  validatePrisoner
 } = require("../prisoners/middleware/prisoner-middleware.js");
 
 const skillsRouter = require("./skills/skills-router.js");
@@ -24,7 +23,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/", validateAdmin, (req, res) => {
+router.post("/", validateAdmin, validatePrisoner, (req, res) => {
   Prisoners.add({ ...req.body, prison_id: req.params.id })
     .then(result => {
       res.status(200).json(result);
