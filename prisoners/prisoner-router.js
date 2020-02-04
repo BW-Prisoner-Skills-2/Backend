@@ -50,7 +50,7 @@ router.get("/:prisonerid", (req, res) => {
     });
 });
 
-router.put("/:prisonerid", (req, res) => {
+router.put("/:prisonerid", validateAdmin, (req, res) => {
   Prisoners.update(req.body, req.params.prisonerid)
     .then(result => {
       if (result) {
@@ -66,7 +66,7 @@ router.put("/:prisonerid", (req, res) => {
     });
 });
 
-router.delete("/:prisonerid", (req, res) => {
+router.delete("/:prisonerid", validateAdmin, (req, res) => {
   Prisoners.remove(req.params.prisonerid)
     .then(result => {
       res.status(200).json(result);
