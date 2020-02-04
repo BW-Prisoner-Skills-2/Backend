@@ -1,7 +1,7 @@
 const request = require("supertest");
 const server = require("../api/server.js");
 
-describe("prisoner route", () => {
+describe("prisoner endpoints", () => {
   describe("GET /prisoners", () => {
     it("returns an array regardless of login status", () => {
       return request(server)
@@ -19,7 +19,7 @@ describe("prisoner route", () => {
     });
   });
 
-  describe("POST /prisons", () => {
+  describe("POST /prisoners", () => {
     it("returns 401 code if not logged in", () => {
       return request(server)
         .post("/api/prisons/1/prisoners")
@@ -36,7 +36,7 @@ describe("prisoner route", () => {
     });
   });
 
-  describe("DELETE /prisons/:id", () => {
+  describe("DELETE /prisoners/:id", () => {
     it("returns 401 code if not logged in", () => {
       return request(server)
         .delete("/api/prisons/1/prisoners/1")
@@ -53,7 +53,7 @@ describe("prisoner route", () => {
     });
   });
 
-  describe("PUT /prisons/:id", () => {
+  describe("PUT /prisoners/:id", () => {
     it("returns 401 code if not logged in", () => {
       return request(server)
         .put("/api/prisons/1/prisoners/1")
