@@ -20,7 +20,7 @@
 
 | Request Method | Endpoint                     | Description                                                              |
 | :------------- | :--------------------------- | :----------------------------------------------------------------------- |
-| `POST`         | `/prison/:id/prisoners`      | adds a prisoner to a prison                                              |
+| `POST`         | `/prisons/:id/prisoners`     | adds a prisoner to a prison                                              |
 | `GET`          | `/prisons/:id/prisoners`     | returns all prisoners for a prison, their name, availability, and skills |
 | `GET`          | `/prisons/:id/prisoners/:id` | returns a prisoner by id, their basic info, skills, and experience       |
 | `DELETE`       | `/prisons/:id/prisoners/:id` | deletes a prisoner                                                       |
